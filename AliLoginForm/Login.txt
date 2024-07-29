@@ -1,0 +1,317 @@
+import Link from 'next/link'
+import React, { useState } from 'react'
+import Image from 'next/image'
+import GoogleImg from '@/images/logos/google.svg'
+import AppleImg from '@/images/logos/apple.svg'
+
+export function SignIn() {
+  const [googleHovered, setGoogleHovered] = useState(false)
+  const [appleHovered, setAppleHovered] = useState(false)
+
+  const handleGoogleMouseEnter = () => {
+    setGoogleHovered(true)
+  }
+
+  const handleGoogleMouseLeave = () => {
+    setGoogleHovered(false)
+  }
+
+  const handleAppleMouseEnter = () => {
+    setAppleHovered(true)
+  }
+
+  const handleAppleMouseLeave = () => {
+    setAppleHovered(false)
+  }
+
+  return (
+    <>
+      <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
+          <div
+            className="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12"
+            style={{
+              boxSizing: 'inherit',
+              display: 'flex',
+              flexFlow: 'column nowrap',
+              alignItems: 'stretch',
+              justifyContent: 'flex-start',
+              willChange: 'transform, opacity, height',
+              borderRadius: '1.35em',
+              backgroundColor: 'rgb(255, 255, 255)',
+              transitionProperty:
+                'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform',
+              transitionDuration: '200ms',
+              boxShadow: 'rgb(0 0 0 / 16%) 0px 24px 48px',
+              border: '1px solid transparent',
+              // width: '25rem',
+            }}
+          >
+            <div className="sm:mx-auto sm:w-full sm:max-w-md">
+              <Link href="#" aria-label="Home">
+                <Image src="logo.jpeg" alt="Logo" width={56} height={56} />
+              </Link>
+              <h2 className="text-gray-1200 mt-8 text-2xl font-bold leading-9 tracking-tight">
+                <div
+                  style={{
+                    boxSizing: 'border-box',
+                    fontFamily: 'inherit',
+                    fontWeight: '600',
+                    fontSize: '1.50rem',
+                    lineHeight: '1.5',
+                  }}
+                >
+                  Sign in
+                </div>
+              </h2>
+              <h4 className="mt-1 leading-9 tracking-tight text-gray-600">
+                <div
+                  style={{
+                    boxSizing: 'border-box',
+                    color: 'rgba(20, 20, 20, 0.65)',
+                    fontFamily: 'inherit',
+                    fontWeight: '400',
+                    fontSize: '1.20rem',
+                    lineHeight: '1.5',
+                  }}
+                >
+                  to continue to Educateai
+                </div>
+              </h4>
+            </div>
+
+            <div>
+              {/* login with social media apps buttons */}
+              <div className="mt-8 grid grid-cols-1 gap-4">
+                <a
+                  href="#"
+                  className={`justify-left flex w-full items-center gap-3 rounded-md bg-white px-5 py-2 text-black shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-100 hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0] ${
+                    appleHovered ? 'hovered' : ''
+                  }`}
+                  onMouseEnter={handleAppleMouseEnter}
+                  onMouseLeave={handleAppleMouseLeave}
+                >
+                  <Image
+                    src={AppleImg}
+                    alt="EducateAi Logo"
+                    width={20}
+                    height={20}
+                  />
+
+                  <span
+                    className="font-semibold leading-6 text-gray-500"
+                    style={{ fontSize: '0.8125rem' }}
+                  >
+                    Continue with Apple
+                  </span>
+                  <div className="ml-auto">
+                    {appleHovered && (
+                      <svg
+                        className="h-4 w-4"
+                        style={{ transform: 'scale(1.2)' }}
+                        aria-hidden="true"
+                        fill="#908e8e"
+                        stroke="#908e8e"
+                        viewBox="5 0 24 24"
+                      >
+                        <g id="Complete">
+                          <g id="arrow-right">
+                            <g>
+                              <polyline
+                                data-name="Right"
+                                fill="none"
+                                id="Right-2"
+                                points="16.4 7 21.5 12 16.4 17"
+                                stroke="#908e8e"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                              ></polyline>
+                              <line
+                                fill="none"
+                                stroke="#908e8e"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                x1="2.5"
+                                x2="19.2"
+                                y1="12"
+                                y2="12"
+                              ></line>
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                    )}
+                  </div>
+                </a>
+
+                <a
+                  href="#"
+                  className={`justify-left flex w-full items-center gap-3 rounded-md bg-white px-5 py-2 text-black shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-100 hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0] ${
+                    googleHovered ? 'hovered' : ''
+                  }`}
+                  onMouseEnter={handleGoogleMouseEnter}
+                  onMouseLeave={handleGoogleMouseLeave}
+                >
+                  <Image
+                    src={GoogleImg}
+                    alt="EducateAi Logo"
+                    width={15}
+                    height={15}
+                  />
+
+                  <span
+                    className="font-semibold leading-6 text-gray-500"
+                    style={{ fontSize: '0.8125rem' }}
+                  >
+                    Continue with Google
+                  </span>
+                  <div className="ml-auto">
+                    {googleHovered && (
+                      <svg
+                        className="h-4 w-4"
+                        style={{ transform: 'scale(1.2)' }}
+                        aria-hidden="true"
+                        fill="#908e8e"
+                        stroke="#908e8e"
+                        viewBox="5 0 24 24"
+                      >
+                        <g id="Complete">
+                          <g id="arrow-right">
+                            <g>
+                              <polyline
+                                data-name="Right"
+                                fill="none"
+                                id="Right-2"
+                                points="16.4 7 21.5 12 16.4 17"
+                                stroke="#908e8e"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                              ></polyline>
+                              <line
+                                fill="none"
+                                stroke="#908e8e"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                x1="2.5"
+                                x2="19.2"
+                                y1="12"
+                                y2="12"
+                              ></line>
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                    )}
+                  </div>
+                </a>
+              </div>
+              <div className="relative mt-10">
+                <div
+                  className="absolute inset-0 flex items-center"
+                  aria-hidden="true"
+                >
+                  <div className="w-full border-t border-gray-200" />
+                </div>
+                <div className="relative flex justify-center text-sm font-medium leading-6">
+                  <span className="bg-white px-6 text-gray-900">Or</span>
+                </div>
+              </div>
+            </div>
+
+            <form className="mt-7 space-y-6" action="#" method="POST">
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Email address
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Password
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    autoComplete="current-password"
+                    required
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <input
+                    id="remember-me"
+                    name="remember-me"
+                    type="checkbox"
+                    className="h-4 w-4 rounded border-gray-300 text-blue-800 focus:ring-blue-600"
+                  />
+                  <label
+                    htmlFor="remember-me"
+                    className="ml-3 block text-sm leading-6 text-gray-900"
+                  >
+                    Remember me
+                  </label>
+                </div>
+
+                <div className="text-sm leading-6 ">
+                  <a
+                    href="#"
+                    className="font-semibold text-blue-800 hover:text-blue-600"
+                  >
+                    Forgot password?
+                  </a>
+                </div>
+              </div>
+
+              <div>
+                <button
+                  type="submit"
+                  className="flex w-full justify-center rounded-md bg-blue-800 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  Sign in
+                </button>
+              </div>
+            </form>
+
+            {/* Navigate the Sign Up page  */}
+            <div>
+              <p className="mt-5 text-sm text-gray-500">
+                No account?{' '}
+                <a
+                  href="#"
+                  className="font-semibold leading-6 text-blue-800 hover:text-blue-600"
+                >
+                  Sign up
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  )
+}
